@@ -1,90 +1,32 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { BlankLayout, StackLayout, TabLayout } from './layouts'
-import { ScreenPlaceholder } from './pages/ScreenPlaceholder'
+import { WelcomePage } from './pages/WelcomePage'
+import { ProfileSelectionPage } from './pages/ProfileSelectionPage'
+import { LoginPage } from './pages/LoginPage'
+import { VoiceRegisterPage } from './pages/VoiceRegisterPage'
+import { ConsentPage } from './pages/ConsentPage'
+import { SplashPage } from './pages/SplashPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { DesignSystemPage } from './pages/DesignSystemPage'
+import { ScreenPlaceholder } from './pages/ScreenPlaceholder'
 import App from './App'
-import { Button } from './components/ui'
 
 /**
- * Página inicial de Bienvenida con accesos directos de navegación y prueba.
- */
-function WelcomeScreen() {
-  return (
-    <div className="flex flex-col gap-space-lg py-space-md flex-1 justify-center">
-      <div className="flex items-start justify-between gap-space-sm">
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-mono text-xs font-semibold">
-              Código: 1._bienvenida
-            </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-mono text-xs font-semibold">
-              mobile_blank
-            </span>
-          </div>
-          <h1 className="text-headline-xl-mobile font-headline-xl-mobile text-primary font-bold">
-            Bienvenida
-          </h1>
-          <p className="text-body-lg text-on-surface-variant">
-            Plataforma inclusiva de alfabetización asistida por voz.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
-        <Link to="/perfil" className="w-full">
-          <Button variant="primary" fullWidth icon="person">
-            Elegir mi perfil
-          </Button>
-        </Link>
-        <Link to="/login" className="w-full">
-          <Button variant="secondary" fullWidth icon="login">
-            Iniciar sesión
-          </Button>
-        </Link>
-        <Link to="/estudiante/inicio" className="w-full">
-          <Button variant="amber" fullWidth icon="auto_stories">
-            Panel de estudiante
-          </Button>
-        </Link>
-        <Link to="/design-system" className="w-full">
-          <Button variant="secondary" fullWidth icon="widgets">
-            Catálogo de UI
-          </Button>
-        </Link>
-      </div>
-
-      <div className="flex justify-center pt-2">
-        <Link
-          to="/tokens"
-          className="text-label-md text-primary hover:underline font-semibold"
-        >
-          Ver paleta de tokens y tipografías
-        </Link>
-      </div>
-    </div>
-  )
-}
-
-/**
- * Configuración central de rutas anidadas en sus layouts correspondientes según shell-type.
+ * Enrutador principal de la plataforma Alfabet.
+ * Asigna cada pantalla a su correspondiente layout (mobile_blank, mobile_stack, mobile_tab).
  */
 export function AppRouter() {
   return (
     <Routes>
       {/* 1. Rutas con BlankLayout (shell-type: mobile_blank) */}
       <Route element={<BlankLayout />}>
-        <Route path="/" element={<WelcomeScreen />} />
-        <Route
-          path="/perfil"
-          element={
-            <ScreenPlaceholder
-              title="Selección de perfil"
-              screenCode="2._selecci_n_de_perfil"
-              shellType="mobile_blank"
-            />
-          }
-        />
+        {/* Pantalla 1: Bienvenida */}
+        <Route path="/" element={<WelcomePage />} />
+        {/* Pantalla 2: Selección de Perfil */}
+        <Route path="/perfil" element={<ProfileSelectionPage />} />
+        {/* Pantalla 7: Pantalla de Carga / Splash */}
+        <Route path="/splash" element={<SplashPage />} />
+        {/* Diagnóstico letras */}
         <Route
           path="/diagnostico/letras"
           element={
@@ -95,42 +37,21 @@ export function AppRouter() {
             />
           }
         />
+        {/* Verificación de tokens y catálogo de componentes */}
         <Route path="/tokens" element={<App />} />
         <Route path="/design-system" element={<DesignSystemPage />} />
       </Route>
 
       {/* 2. Rutas con StackLayout (shell-type: mobile_stack) */}
       <Route element={<StackLayout />}>
-        <Route
-          path="/login"
-          element={
-            <ScreenPlaceholder
-              title="Inicio de sesión"
-              screenCode="c4._inicio_de_sesi_n"
-              shellType="mobile_stack"
-            />
-          }
-        />
-        <Route
-          path="/registro"
-          element={
-            <ScreenPlaceholder
-              title="Registro asistido por voz"
-              screenCode="3._registro_asistido_por_voz"
-              shellType="mobile_stack"
-            />
-          }
-        />
-        <Route
-          path="/consentimiento"
-          element={
-            <ScreenPlaceholder
-              title="Consentimiento informado para menores"
-              screenCode="c8._consentimiento_informado_para_menores"
-              shellType="mobile_stack"
-            />
-          }
-        />
+        {/* Pantalla 3: Inicio de Sesión */}
+        <Route path="/login" element={<LoginPage />} />
+        {/* Pantalla 4: Registro asistido por voz */}
+        <Route path="/registro" element={<VoiceRegisterPage />} />
+        {/* Pantalla 5: Consentimiento informado para menores */}
+        <Route path="/consentimiento" element={<ConsentPage />} />
+
+        {/* Diagnósticos */}
         <Route
           path="/diagnostico/intro"
           element={
@@ -181,6 +102,8 @@ export function AppRouter() {
             />
           }
         />
+
+        {/* Lecciones y Práctica del Estudiante */}
         <Route
           path="/estudiante/lecciones"
           element={
@@ -251,6 +174,8 @@ export function AppRouter() {
             />
           }
         />
+
+        {/* Tutor: Detalle y análisis */}
         <Route
           path="/tutor/estudiantes/:id"
           element={
@@ -271,6 +196,8 @@ export function AppRouter() {
             />
           }
         />
+
+        {/* Modo sin conexión */}
         <Route
           path="/sin-conexion"
           element={
@@ -281,7 +208,8 @@ export function AppRouter() {
             />
           }
         />
-        {/* Ruta comodín * -> Página no encontrada */}
+
+        {/* Pantalla 6: Ruta comodín * -> Página no encontrada */}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
 

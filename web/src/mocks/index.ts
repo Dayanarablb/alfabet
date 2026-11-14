@@ -1,0 +1,7 @@
+export * from './bienvenida.mock'
+export * from './perfil.mock'
+export * from './login.mock'
+export * from './registro.mock'
+export * from './consentimiento.mock'
+export * from './notFound.mock'
+export * from './splash.mock'
