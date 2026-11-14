@@ -171,8 +171,8 @@ export default function App() {
             Tokens Verificados
           </span>
           <span className="px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-md font-semibold inline-flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-xl">offline_pin</span>
-            100% Offline
+            <span className="material-symbols-outlined text-xl">font_download</span>
+            Fuentes locales
           </span>
         </div>
       </header>
