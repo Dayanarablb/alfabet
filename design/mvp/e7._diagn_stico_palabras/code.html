@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#d8e3fb", "secondary-fixed": "#ffdcc3", "primary-fixed-dim": "#b6c4ff", "surface-container-high": "#dee8ff", "on-primary-fixed-variant": "#264191", "on-primary-container": "#90a8ff", "on-background": "#111c2d", "primary-fixed": "#dce1ff", "background": "#f9f9ff", "on-primary-fixed": "#00164e", "outline": "#757682", "tertiary-fixed-dim": "#4edea3", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#ffb77d", "error": "#ba1a1a", "inverse-on-surface": "#ecf1ff", "tertiary-container": "#004a31", "surface-tint": "#4059aa", "on-error": "#ffffff", "on-surface": "#111c2d", "tertiary-fixed": "#6ffbbe", "tertiary": "#00311f", "secondary-container": "#fe932c", "surface-bright": "#f9f9ff", "on-secondary-fixed-variant": "#6e3900", "surface-container": "#e7eeff", "on-tertiary": "#ffffff", "outline-variant": "#c5c5d3", "error-container": "#ffdad6", "surface-container-low": "#f0f3ff", "on-tertiary-fixed": "#002113", "secondary": "#904d00", "on-tertiary-fixed-variant": "#005236", "primary-container": "#1e3a8a", "inverse-primary": "#b6c4ff", "surface-dim": "#cfdaf2", "inverse-surface": "#263143", "on-error-container": "#93000a", "surface": "#f9f9ff", "surface-container-highest": "#d8e3fb", "primary": "#00236f", "on-tertiary-container": "#27c38a", "on-secondary-container": "#663500", "on-primary": "#ffffff", "on-surface-variant": "#444651", "on-secondary-fixed": "#2f1500" }, borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, spacing: { "space-lg": "1.75rem", "space-sm": "0.75rem", "gutter": "1rem", "space-xl": "2.5rem", "margin": "1.25rem", "space-xs": "0.5rem", "space-md": "1.25rem" }, fontFamily: { "body-xl": ["Lexend"], "headline-xl-mobile": ["Lexend"], "headline-md": ["Lexend"], "headline-lg-mobile": ["Lexend"], "headline-lg": ["Lexend"], "body-lg": ["Lexend"], "label-lg": ["Lexend"], "headline-xl": ["Lexend"], "body-bold": ["Lexend"], "label-md": ["Lexend"] }, fontSize: { "body-xl": ["20px", { lineHeight: "32px", letterSpacing: "0.01em", fontWeight: "400" }], "headline-xl-mobile": ["30px", { lineHeight: "40px", fontWeight: "700" }], "headline-md": ["22px", { lineHeight: "32px", fontWeight: "600" }], "headline-lg-mobile": ["24px", { lineHeight: "34px", fontWeight: "700" }], "headline-lg": ["28px", { lineHeight: "38px", fontWeight: "700" }], "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0.01em", fontWeight: "400" }], "label-lg": ["18px", { lineHeight: "26px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-xl": ["36px", { lineHeight: "48px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-bold": ["18px", { lineHeight: "28px", fontWeight: "600" }], "label-md": ["16px", { lineHeight: "24px", letterSpacing: "0.02em", fontWeight: "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-lg text-body-lg text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Volver a la pantalla anterior" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-surface-container flex items-center justify-center text-on-surface active:translate-y-[2px] transition-all" onclick="history.back()"><span class="material-symbols-outlined text-[28px]">arrow_back</span></button><h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight truncate max-w-[200px]">Diagnóstico De Lectura</h1></div><div class="flex items-center gap-space-sm"><button aria-label="Escuchar la pregunta o instrucción" class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center active:translate-y-[2px] transition-all"><span class="material-symbols-outlined text-[30px]">volume_up</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 px-margin pb-safe bg-surface"><div class="flex flex-col w-full pb-8">
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Diagnóstico inicial</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Paso 3 de 5</span>
+</div>
+<div class="flex gap-2 w-full h-3">
+<div class="flex-1 bg-tertiary-container rounded-full"></div>
+<div class="flex-1 bg-tertiary-container rounded-full"></div>
+<div class="flex-1 bg-secondary-container rounded-full shadow-sm"></div>
+<div class="flex-1 bg-surface-variant rounded-full"></div>
+<div class="flex-1 bg-surface-variant rounded-full"></div>
+</div>
+</div>
+<section aria-label="Instrucción guiada por voz" class="bg-secondary-fixed text-on-secondary-fixed rounded-lg p-space-md shadow-sm mb-space-md flex items-center justify-between gap-space-sm" role="region">
+<div class="flex items-start gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[32px] text-secondary shrink-0 select-none" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-secondary-fixed-variant uppercase tracking-wider font-semibold">Instrucción en audio</span>
+<p class="font-headline-md text-headline-md text-on-secondary-fixed tracking-tight">Toca la imagen de la palabra <span class="underline decoration-secondary font-bold">PAN</span></p>
+</div>
+</div>
+<button aria-label="Reproducir instrucción en voz alta" class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-md active:translate-y-[2px] transition-transform shrink-0" id="btn-instruction-audio" type="button">
+<span class="material-symbols-outlined text-[32px]">volume_up</span>
+</button>
+</section>
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-md mb-space-md flex flex-col items-center justify-center text-center">
+<span class="font-label-md text-label-md text-on-surface-variant mb-space-xs uppercase tracking-widest font-medium">Lee esta palabra:</span>
+<div class="flex items-center justify-center gap-space-md w-full">
+<div class="bg-surface-container-low px-8 py-3 rounded-DEFAULT shadow-inner">
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-primary tracking-widest font-bold select-none">PAN</span>
+</div>
+<button aria-label="Escuchar deletreo y pronunciación de PAN" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shadow-sm active:translate-y-[2px] transition-transform" id="btn-word-phonetics" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant mt-space-xs">Pulsa el parlante para escuchar: “P - A - N... Pan”</span>
+</div>
+<fieldset class="flex flex-col gap-space-md mb-space-lg">
+<legend class="sr-only">Selecciona la imagen que corresponde a la palabra PAN</legend>
+<div aria-label="Opción 1: Pan recién horneado" class="option-card bg-surface-container-lowest rounded-lg p-space-sm shadow-md flex items-center justify-between gap-space-sm active:translate-y-[2px] transition-all cursor-pointer" id="option-pan" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 h-8 min-w-[32px] rounded-full bg-surface-container flex items-center justify-center radio-indicator">
+<span class="material-symbols-outlined text-transparent text-[22px] radio-check" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="w-24 h-24 min-w-[96px] rounded-DEFAULT overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
+<img class="w-full h-full object-cover select-none" data-alt="Fotografía cálida y nítida de panes andinos ecuatorianos redondos y dorados recién horneados sobre un paño rústico de cocina, iluminación de luz natural diurna, textura crujiente y harina espolvoreada, ambiente hogareño y digno." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqyQ98YKRcUcl_SmH6FP-ITvWrv6B0Hym5CkVs96ogJ6hxdlSrAoKTNv7MAN-MssLuAfTI-V4Nfuj9MzuA1vst-edevFcS1TLl6ZS5XHMrhcmubj8ClqZSD2zsHjIi8dYR9n_Wp0TjA5KPRUasUYkOR1Dew5RPjHVm856ZW6UBdUb_hifU_u8NI2mkETs06nKdPt4VskEm3vz1szqgA2VaoJNQXKI9xvBaOWMuq-0"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Pan</span>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">Alimento diario</span>
+</div>
+</div>
+<button aria-label="Escuchar palabra Pan" class="btn-card-audio w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-surface-container-high text-on-surface flex items-center justify-center active:translate-y-[2px] transition-transform shrink-0" type="button">
+<span class="material-symbols-outlined text-[28px]">volume_up</span>
+</button>
+</div>
+<div aria-label="Opción 2: Vaso con agua fresca" class="option-card bg-surface-container-lowest rounded-lg p-space-sm shadow-md flex items-center justify-between gap-space-sm active:translate-y-[2px] transition-all cursor-pointer" id="option-agua" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 h-8 min-w-[32px] rounded-full bg-surface-container flex items-center justify-center radio-indicator">
+<span class="material-symbols-outlined text-transparent text-[22px] radio-check" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="w-24 h-24 min-w-[96px] rounded-DEFAULT overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
+<img class="w-full h-full object-cover select-none" data-alt="Fotografía en plano medio de un vaso transparente con agua pura y fresca sobre una mesa de madera limpia con reflejos de luz natural, enfoque nítido y claro estilo editorial de alta calidad." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACLnuiDQlemEdeJcd9NmqR3oj0PxTPaecBqFPL_YHFB463pqIpMpS7WSA8DqTZ1PH8-3mPXlpx7NvEIRQmoKty4Cif-tFVJU3YAR636dmZ9s_0pJ32fpNgaeXSdDsoJ4LNnF66RcexrI9GDpQWnKxdRiHNAiitfQewYJvU4QpLFjisEi593LkzBUaMcRLdL9PzQa_csow0TtbKLkwJgkPG8GzW0-VPjrF6QL0XPQk"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Agua</span>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">Vaso de agua pura</span>
+</div>
+</div>
+<button aria-label="Escuchar palabra Agua" class="btn-card-audio w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-surface-container-high text-on-surface flex items-center justify-center active:translate-y-[2px] transition-transform shrink-0" type="button">
+<span class="material-symbols-outlined text-[28px]">volume_up</span>
+</button>
+</div>
+<div aria-label="Opción 3: Taza de café caliente" class="option-card bg-surface-container-lowest rounded-lg p-space-sm shadow-md flex items-center justify-between gap-space-sm active:translate-y-[2px] transition-all cursor-pointer" id="option-cafe" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 h-8 min-w-[32px] rounded-full bg-surface-container flex items-center justify-center radio-indicator">
+<span class="material-symbols-outlined text-transparent text-[22px] radio-check" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="w-24 h-24 min-w-[96px] rounded-DEFAULT overflow-hidden bg-surface-container-high shrink-0 shadow-inner">
+<img class="w-full h-full object-cover select-none" data-alt="Fotografía de una taza de café caliente humeante servida en una taza de cerámica clara sobre una superficie limpia con fondo desenfocado cálido, luz matutina natural, tonos marrones intensos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt-LAU9vEtPwfTchWlLmdIaWCU8jvWIhp82sRAdNV9QLdPkfPJRRRY4JVs5fdriwrK4dIB27Z1z28lOCCxekImZrSmaxOx4SbyJsXQrd0XyCABp6IuCFoknIUY3SLILZj2G_us-ExXuOEXD8GbX8BMt81j1S8MIqRaIgVlAoerz_95pghrnRo6lQ0oW8CqAahLSs1gN4wSVI1b5WXJdPFJ5zCoPkJ3QAZL-BdGdOg"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Café</span>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">Taza caliente</span>
+</div>
+</div>
+<button aria-label="Escuchar palabra Café" class="btn-card-audio w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-surface-container-high text-on-surface flex items-center justify-center active:translate-y-[2px] transition-transform shrink-0" type="button">
+<span class="material-symbols-outlined text-[28px]">volume_up</span>
+</button>
+</div>
+</fieldset>
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-sm mb-space-lg flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[28px] text-primary shrink-0">mic</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-bold text-body-bold text-on-surface tracking-tight">Responde con tu voz</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Toca el micrófono y pronuncia “Pan”</span>
+</div>
+</div>
+<button aria-label="Activar micrófono para responder hablando" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform shrink-0" id="btn-mic-action" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm w-full">
+<button class="w-full h-[64px] min-h-[64px] rounded-full bg-surface-dim text-on-surface-variant flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm active:translate-y-[2px] transition-all cursor-not-allowed" disabled="" id="btn-submit" type="button">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Confirmar respuesta</span>
+</button>
+<button class="w-full h-[56px] min-h-[56px] rounded-full bg-surface-container text-on-surface flex items-center justify-center gap-space-xs font-label-md text-label-md active:translate-y-[2px] transition-all" id="btn-skip" type="button">
+<span class="material-symbols-outlined text-[22px]">help_outline</span>
+<span>No estoy seguro, pasar</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const cards = document.querySelectorAll('.option-card');
+    const submitBtn = document.getElementById('btn-submit');
+    const audioCardButtons = document.querySelectorAll('.btn-card-audio');
+    const instructionBtn = document.getElementById('btn-instruction-audio');
+    const phoneticsBtn = document.getElementById('btn-word-phonetics');
+    const micBtn = document.getElementById('btn-mic-action');
+    let selectedId = null;
+
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-card-audio')) return;
+
+        cards.forEach(c => {
+          c.classList.remove('bg-surface-container-high', 'shadow-lg');
+          c.classList.add('bg-surface-container-lowest', 'shadow-md');
+          const indicator = c.querySelector('.radio-indicator');
+          const check = c.querySelector('.radio-check');
+          indicator.classList.remove('bg-primary');
+          indicator.classList.add('bg-surface-container');
+          check.classList.remove('text-on-primary');
+          check.classList.add('text-transparent');
+        });
+
+        card.classList.remove('bg-surface-container-lowest', 'shadow-md');
+        card.classList.add('bg-surface-container-high', 'shadow-lg');
+        const indicator = card.querySelector('.radio-indicator');
+        const check = card.querySelector('.radio-check');
+        indicator.classList.remove('bg-surface-container');
+        indicator.classList.add('bg-primary');
+        check.classList.remove('text-transparent');
+        check.classList.add('text-on-primary');
+
+        selectedId = card.id;
+
+        submitBtn.removeAttribute('disabled');
+        submitBtn.classList.remove('bg-surface-dim', 'text-on-surface-variant', 'cursor-not-allowed');
+        submitBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-md', 'cursor-pointer');
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    audioCardButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.add('bg-secondary-fixed', 'text-on-secondary-fixed');
+        setTimeout(() => {
+          btn.classList.remove('bg-secondary-fixed', 'text-on-secondary-fixed');
+        }, 1200);
+      });
+    });
+
+    if (instructionBtn) {
+      instructionBtn.addEventListener('click', () => {
+        instructionBtn.classList.add('scale-95');
+        setTimeout(() => instructionBtn.classList.remove('scale-95'), 200);
+      });
+    }
+
+    if (phoneticsBtn) {
+      phoneticsBtn.addEventListener('click', () => {
+        phoneticsBtn.classList.add('scale-95');
+        setTimeout(() => phoneticsBtn.classList.remove('scale-95'), 200);
+      });
+    }
+
+    if (micBtn) {
+      micBtn.addEventListener('click', () => {
+        const isListening = micBtn.classList.contains('bg-secondary-container');
+        if (!isListening) {
+          micBtn.classList.remove('bg-primary', 'text-on-primary');
+          micBtn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+          setTimeout(() => {
+            const panCard = document.getElementById('option-pan');
+            if (panCard) panCard.click();
+            micBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+            micBtn.classList.add('bg-primary', 'text-on-primary');
+          }, 1800);
+        }
+      });
+    }
+  })();
+</script></main></body></html>

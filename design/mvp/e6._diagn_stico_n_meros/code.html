@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#d8e3fb", "secondary-fixed": "#ffdcc3", "primary-fixed-dim": "#b6c4ff", "surface-container-high": "#dee8ff", "on-primary-fixed-variant": "#264191", "on-primary-container": "#90a8ff", "on-background": "#111c2d", "primary-fixed": "#dce1ff", "background": "#f9f9ff", "on-primary-fixed": "#00164e", "outline": "#757682", "tertiary-fixed-dim": "#4edea3", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#ffb77d", "error": "#ba1a1a", "inverse-on-surface": "#ecf1ff", "tertiary-container": "#004a31", "surface-tint": "#4059aa", "on-error": "#ffffff", "on-surface": "#111c2d", "tertiary-fixed": "#6ffbbe", "tertiary": "#00311f", "secondary-container": "#fe932c", "surface-bright": "#f9f9ff", "on-secondary-fixed-variant": "#6e3900", "surface-container": "#e7eeff", "on-tertiary": "#ffffff", "outline-variant": "#c5c5d3", "error-container": "#ffdad6", "surface-container-low": "#f0f3ff", "on-tertiary-fixed": "#002113", "secondary": "#904d00", "on-tertiary-fixed-variant": "#005236", "primary-container": "#1e3a8a", "inverse-primary": "#b6c4ff", "surface-dim": "#cfdaf2", "inverse-surface": "#263143", "on-error-container": "#93000a", "surface": "#f9f9ff", "surface-container-highest": "#d8e3fb", "primary": "#00236f", "on-tertiary-container": "#27c38a", "on-secondary-container": "#663500", "on-primary": "#ffffff", "on-surface-variant": "#444651", "on-secondary-fixed": "#2f1500" }, borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, spacing: { "space-lg": "1.75rem", "space-sm": "0.75rem", "gutter": "1rem", "space-xl": "2.5rem", "margin": "1.25rem", "space-xs": "0.5rem", "space-md": "1.25rem" }, fontFamily: { "body-xl": ["Lexend"], "headline-xl-mobile": ["Lexend"], "headline-md": ["Lexend"], "headline-lg-mobile": ["Lexend"], "headline-lg": ["Lexend"], "body-lg": ["Lexend"], "label-lg": ["Lexend"], "headline-xl": ["Lexend"], "body-bold": ["Lexend"], "label-md": ["Lexend"] }, fontSize: { "body-xl": ["20px", { lineHeight: "32px", letterSpacing: "0.01em", fontWeight: "400" }], "headline-xl-mobile": ["30px", { lineHeight: "40px", fontWeight: "700" }], "headline-md": ["22px", { lineHeight: "32px", fontWeight: "600" }], "headline-lg-mobile": ["24px", { lineHeight: "34px", fontWeight: "700" }], "headline-lg": ["28px", { lineHeight: "38px", fontWeight: "700" }], "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0.01em", fontWeight: "400" }], "label-lg": ["18px", { lineHeight: "26px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-xl": ["36px", { lineHeight: "48px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-bold": ["18px", { lineHeight: "28px", fontWeight: "600" }], "label-md": ["16px", { lineHeight: "24px", letterSpacing: "0.02em", fontWeight: "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-lg text-body-lg text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Volver a la pantalla anterior" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-surface-container flex items-center justify-center text-on-surface active:translate-y-[2px] transition-all" onclick="history.back()"><span class="material-symbols-outlined text-[28px]">arrow_back</span></button><h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight truncate max-w-[200px]">Diagnóstico De Lectura</h1></div><div class="flex items-center gap-space-sm"><button aria-label="Escuchar la pregunta o instrucción" class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center active:translate-y-[2px] transition-all"><span class="material-symbols-outlined text-[30px]">volume_up</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 px-margin pb-safe bg-surface"><div class="flex flex-col w-full pb-8">
+<!-- Progress Header -->
+<section class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Diagnóstico de inicio</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold bg-primary-fixed px-3 py-1 rounded-full">Paso 2 de 5</span>
+</div>
+<!-- Segmented Tactile Progress Bar -->
+<div class="grid grid-cols-5 gap-2 h-3 w-full mt-1">
+<div class="h-full rounded-full bg-tertiary-container"></div>
+<div class="h-full rounded-full bg-secondary-container shadow-sm"></div>
+<div class="h-full rounded-full bg-surface-container-high"></div>
+<div class="h-full rounded-full bg-surface-container-high"></div>
+<div class="h-full rounded-full bg-surface-container-high"></div>
+</div>
+</section>
+<!-- Omnipresent Audio Instruction Banner -->
+<section class="mb-space-md">
+<div class="bg-secondary-fixed text-on-secondary-fixed rounded-lg p-space-md shadow-md flex items-center gap-space-md">
+<button aria-label="Escuchar la instrucción en voz alta" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-lg active:translate-y-[2px] transition-all" id="btn-instruction-audio" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md font-semibold text-secondary uppercase tracking-wider">Instrucción en audio</span>
+<p class="font-headline-md text-headline-md font-bold text-on-secondary-fixed leading-tight">
+          ¿Cuál tarjeta muestra el número 5 (cinco dólares)?
+        </p>
+</div>
+</div>
+</section>
+<!-- Big Target Number Card -->
+<section class="mb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md flex flex-col items-center justify-center text-center relative overflow-hidden">
+<span class="font-label-md text-label-md text-on-surface-variant mb-1">Busca este número:</span>
+<div class="flex items-center justify-center gap-space-md my-1">
+<span class="font-headline-xl text-headline-xl text-primary font-bold leading-none select-none tracking-tight">5</span>
+<button aria-label="Escuchar la pronunciación del número cinco" class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shadow-sm active:translate-y-[2px] transition-all" id="btn-target-audio" type="button">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Cinco dólares</span>
+</div>
+</section>
+<!-- Accessible Options Selection -->
+<fieldset class="flex flex-col gap-space-md mb-space-lg">
+<legend class="sr-only">Selecciona la opción que corresponde al número 5</legend>
+<!-- Option 1: 5 Dólares (Correct) -->
+<div class="option-card bg-surface-container-lowest text-on-surface rounded-lg p-space-md shadow-md flex items-center gap-space-md cursor-pointer transition-all active:translate-y-[2px]" id="opt1" onclick="selectCard(this, 'opt1')">
+<div class="w-24 h-24 min-w-[96px] min-h-[96px] rounded-DEFAULT overflow-hidden bg-surface-container flex items-center justify-center relative">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of a crisp five dollar bill featuring Abraham Lincoln next to five shining US one dollar coins arranged neatly on a clean Ecuadorian wooden market counter, warm natural sunlight, tactile documentary photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWJVMD7NOQPWFMCZtZ5oVe0IQLEy4C8JREmuNj3xJm8s8TnYAANOQjz66-M4TPMXHwDnV_8B_how6i4plsG6IEjT3LmsRrIvl0IpGlkqx1WFqaPWwOrcEcP-QN4IsKjeDnXXtNvlnVAnh0z4huRs36xuSTAHOqwpcNz7uxzVx_fQtzD9pYYddHDavOcMSfgkB_VrHaqqeWjiZbucxizUx7jj9a5nXpmDSrL6CGRE0"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">5</span>
+<span class="font-body-xl text-body-xl text-on-surface-variant font-medium">Cinco dólares</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Escuchar cinco dólares" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-surface-container text-on-surface flex items-center justify-center active:translate-y-[2px] transition-all" onclick="event.stopPropagation(); playSound('Cinco dólares');" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+<div class="radio-indicator w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-container text-[20px] checkmark opacity-0">check</span>
+</div>
+</div>
+</div>
+<!-- Option 2: 2 Dólares -->
+<div class="option-card bg-surface-container-lowest text-on-surface rounded-lg p-space-md shadow-md flex items-center gap-space-md cursor-pointer transition-all active:translate-y-[2px]" id="opt2" onclick="selectCard(this, 'opt2')">
+<div class="w-24 h-24 min-w-[96px] min-h-[96px] rounded-DEFAULT overflow-hidden bg-surface-container flex items-center justify-center relative">
+<img class="w-full h-full object-cover" data-alt="Two gleaming golden US one-dollar coins placed side by side on a clean fabric surface, authentic everyday currency used in Ecuador, clear and sharp focus, dignified documentary tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCloK5uzDyyIBaNAi1Pu4czPISoOvecLboIyqPRjXuj1KbtwYUHjQ3r4mmxte5KiusLDf1W2ixMGlD3b1kTvv0Za8Q1IzWkXgrHOVLFIlRk4ieP9RXN1KBJJ_UqChF81KipuGgnPs-a7FhWp6cVkhJUY3h-N-FDSGw8vlYeRXUPJKRcukr5IKLnBonMm1Yj4r_cnQQRTj4anNwVJjNadfnhmp04sGGEB5ryqjQd_PM"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">2</span>
+<span class="font-body-xl text-body-xl text-on-surface-variant font-medium">Dos dólares</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Escuchar dos dólares" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-surface-container text-on-surface flex items-center justify-center active:translate-y-[2px] transition-all" onclick="event.stopPropagation(); playSound('Dos dólares');" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+<div class="radio-indicator w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-container text-[20px] checkmark opacity-0">check</span>
+</div>
+</div>
+</div>
+<!-- Option 3: 10 Dólares -->
+<div class="option-card bg-surface-container-lowest text-on-surface rounded-lg p-space-md shadow-md flex items-center gap-space-md cursor-pointer transition-all active:translate-y-[2px]" id="opt3" onclick="selectCard(this, 'opt3')">
+<div class="w-24 h-24 min-w-[96px] min-h-[96px] rounded-DEFAULT overflow-hidden bg-surface-container flex items-center justify-center relative">
+<img class="w-full h-full object-cover" data-alt="A clean US ten-dollar banknote resting flat on a bright textured countertop, clear legible typography and monetary denomination, warm ambient light, realistic Ecuadorian commerce theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbfZkiZmS3LYMLCxUx9uhlWYe_tNI6lmsJMf-veZmEjkHZtmajpvuBZ02x3KlwYrT0tPMkLSABrYOVk22s3G0PoiRxAST1SGXATHFk0awBnTNwsc8uclPFhuglNPC--u8UWgH85Z_d4cid95XXNX4HQGF9sTz54hVQEhUq2_0aG0ICfzF4MNJRZ9Oj5CyraM7mMA2oUtohQbDtpa0lk9aId8wvyB7_zbDwZKK0Ot4"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">10</span>
+<span class="font-body-xl text-body-xl text-on-surface-variant font-medium">Diez dólares</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Escuchar diez dólares" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-surface-container text-on-surface flex items-center justify-center active:translate-y-[2px] transition-all" onclick="event.stopPropagation(); playSound('Diez dólares');" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+<div class="radio-indicator w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-container text-[20px] checkmark opacity-0">check</span>
+</div>
+</div>
+</div>
+</fieldset>
+<!-- Voice Response Alternative Card -->
+<section class="mb-space-lg">
+<div class="bg-surface-container-high rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-primary text-[20px]">mic</span>
+<span class="font-label-md text-label-md font-bold text-primary">¿Prefieres responder hablando?</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Toca el micrófono y di en voz alta: <strong class="text-on-surface font-bold">«Cinco»</strong>
+</p>
+</div>
+<button aria-label="Hablar para responder" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg active:translate-y-[2px] transition-all" id="btn-mic-input" onclick="toggleVoiceInput(this)" type="button">
+<span class="material-symbols-outlined text-[32px]">mic</span>
+</button>
+</div>
+</section>
+<!-- Action Controls -->
+<footer class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary Confirmation Button (Min 64px) -->
+<button class="w-full min-h-[64px] h-16 rounded-full bg-primary text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-space-sm shadow-xl active:translate-y-[2px] transition-all opacity-60 pointer-events-none" id="btn-submit" onclick="submitAnswer()" type="button">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Confirmar respuesta</span>
+</button>
+<!-- Respectful Skip Button (Zero Penalty) -->
+<button class="w-full min-h-[56px] h-14 rounded-full bg-surface-container-low text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs active:translate-y-[2px] transition-all" onclick="skipStep()" type="button">
+<span class="material-symbols-outlined text-outline text-[22px]">help</span>
+<span>No estoy seguro, pasar a la siguiente</span>
+</button>
+</footer>
+</div>
+<script>
+  let selectedId = null;
+  let isListening = false;
+
+  function selectCard(cardElement, id) {
+    document.querySelectorAll('.option-card').forEach(card => {
+      card.classList.remove('bg-surface-container', 'shadow-lg');
+      card.classList.add('bg-surface-container-lowest', 'shadow-md');
+      const check = card.querySelector('.checkmark');
+      const indicator = card.querySelector('.radio-indicator');
+      if (check) check.classList.add('opacity-0');
+      if (indicator) {
+        indicator.classList.remove('bg-primary');
+        indicator.classList.add('bg-surface-container');
+      }
+    });
+
+    selectedId = id;
+    cardElement.classList.remove('bg-surface-container-lowest');
+    cardElement.classList.add('bg-surface-container', 'shadow-lg');
+    
+    const check = cardElement.querySelector('.checkmark');
+    const indicator = cardElement.querySelector('.radio-indicator');
+    if (check) check.classList.remove('opacity-0');
+    if (indicator) {
+      indicator.classList.remove('bg-surface-container');
+      indicator.classList.add('bg-primary');
+      check.classList.remove('text-surface-container');
+      check.classList.add('text-on-primary');
+    }
+
+    const submitBtn = document.getElementById('btn-submit');
+    submitBtn.classList.remove('opacity-60', 'pointer-events-none');
+    submitBtn.classList.add('opacity-100');
+  }
+
+  function playSound(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'es-EC';
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  document.getElementById('btn-instruction-audio')?.addEventListener('click', () => {
+    playSound('¿Cuál tarjeta muestra el número 5, cinco dólares?');
+  });
+
+  document.getElementById('btn-target-audio')?.addEventListener('click', () => {
+    playSound('Número cinco. Cinco dólares.');
+  });
+
+  function toggleVoiceInput(btn) {
+    isListening = !isListening;
+    if (isListening) {
+      btn.classList.remove('bg-primary', 'text-on-primary');
+      btn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'animate-pulse');
+      playSound('Te escucho. Di el número cinco.');
+      setTimeout(() => {
+        selectCard(document.getElementById('opt1'), 'opt1');
+        btn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'animate-pulse');
+        btn.classList.add('bg-primary', 'text-on-primary');
+        isListening = false;
+      }, 2500);
+    } else {
+      btn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'animate-pulse');
+      btn.classList.add('bg-primary', 'text-on-primary');
+    }
+  }
+
+  function submitAnswer() {
+    if (!selectedId) return;
+    playSound('Excelente trabajo. Respuesta guardada.');
+  }
+
+  function skipStep() {
+    playSound('Está bien. Continuamos con el siguiente ejercicio sin ningún problema.');
+  }
+</script></main></body></html>

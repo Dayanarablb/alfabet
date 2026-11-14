@@ -1,0 +1,8 @@
+﻿node_modules/
+dist/
+.env
+design/stitch-export/
+design/*.zip
+__pycache__/
+.venv/
+*.log

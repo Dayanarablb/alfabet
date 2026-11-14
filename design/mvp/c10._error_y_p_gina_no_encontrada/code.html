@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline": "#757682", "primary": "#00236f", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b6c4ff", "inverse-on-surface": "#ecf1ff", "on-secondary-container": "#663500", "error-container": "#ffdad6", "primary-fixed": "#dce1ff", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#6e3900", "on-background": "#111c2d", "secondary-fixed-dim": "#ffb77d", "secondary": "#904d00", "tertiary-fixed": "#6ffbbe", "tertiary-container": "#004a31", "surface-dim": "#cfdaf2", "on-tertiary-fixed-variant": "#005236", "error": "#ba1a1a", "primary-container": "#1e3a8a", "inverse-primary": "#b6c4ff", "on-tertiary-fixed": "#002113", "surface-container-high": "#dee8ff", "on-surface": "#111c2d", "secondary-container": "#fe932c", "surface-tint": "#4059aa", "surface-variant": "#d8e3fb", "on-error-container": "#93000a", "on-primary-container": "#90a8ff", "tertiary-fixed-dim": "#4edea3", "surface": "#f9f9ff", "on-primary-fixed": "#00164e", "secondary-fixed": "#ffdcc3", "on-primary-fixed-variant": "#264191", "background": "#f9f9ff", "on-secondary-fixed": "#2f1500", "surface-container-low": "#f0f3ff", "on-tertiary-container": "#27c38a", "surface-container-highest": "#d8e3fb", "inverse-surface": "#263143", "on-secondary": "#ffffff", "tertiary": "#00311f", "on-primary": "#ffffff", "surface-container": "#e7eeff", "outline-variant": "#c5c5d3", "on-error": "#ffffff", "on-surface-variant": "#444651", "surface-bright": "#f9f9ff" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "space-md": "1.25rem", "space-xl": "2.5rem", "gutter": "1rem", "space-lg": "1.75rem", "space-xs": "0.5rem", "space-sm": "0.75rem", "margin": "1.25rem" }, "fontFamily": { "headline-md": ["Lexend"], "body-bold": ["Lexend"], "headline-lg-mobile": ["Lexend"], "body-xl": ["Lexend"], "headline-lg": ["Lexend"], "headline-xl": ["Lexend"], "headline-xl-mobile": ["Lexend"], "label-lg": ["Lexend"], "label-md": ["Lexend"], "body-lg": ["Lexend"] }, "fontSize": { "headline-md": ["22px", { "lineHeight": "32px", "fontWeight": "600" }], "body-bold": ["18px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "34px", "fontWeight": "700" }], "body-xl": ["20px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "38px", "fontWeight": "700" }], "headline-xl": ["36px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl-mobile": ["30px", { "lineHeight": "40px", "fontWeight": "700" }], "label-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "500" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-lg text-body-lg text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between gap-space-sm max-w-xl mx-auto"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Volver a la pantalla anterior" class="w-12 h-12 rounded-full bg-surface-container hover:bg-surface-variant flex items-center justify-center text-primary active:translate-y-0.5 transition-transform shrink-0" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[26px]">arrow_back</span></button><h1 class="font-headline-md text-headline-md text-primary tracking-tight truncate">Sesion De Lectura</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Escuchar instrucción" class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shadow-[0_2px_8px_rgba(144,77,0,0.12)] active:translate-y-0.5 transition-transform" type="button"><span class="material-symbols-outlined text-[26px]">volume_up</span></button><div aria-label="Perfil de usuario" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col w-full max-w-xl mx-auto pt-20 pb-safe px-margin bg-surface"><div class="flex flex-col w-full pb-10">
+<!-- Segmented Step Indicator (Tranquil civic anchor) -->
+<div class="flex items-center gap-2 mb-space-md pt-2 px-1">
+<div class="h-2 flex-1 rounded-full bg-secondary-container"></div>
+<div class="h-2 flex-1 rounded-full bg-secondary-container"></div>
+<div class="h-2 flex-1 rounded-full bg-secondary-fixed"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-container-high"></div>
+</div>
+<!-- Audio-First Prominent Guidance Bar -->
+<section aria-label="Instrucción de audio guiada" class="mb-space-md">
+<button class="w-full bg-surface-container-lowest rounded-lg p-space-sm shadow-sm active:translate-y-0.5 transition-transform flex items-center gap-space-sm text-left group" id="audio-guide-btn" onclick="toggleAudioSpeech()" type="button">
+<div class="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform" id="audio-icon-box">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</div>
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-secondary">Voz de apoyo disponible</span>
+</div>
+<p class="font-body-bold text-body-bold text-on-surface leading-tight">
+          Toca aquí para escuchar qué sucedió y cómo volver a tu camino
+        </p>
+</div>
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]">play_arrow</span>
+</div>
+</button>
+</section>
+<!-- Warm Dignified Illustration Card -->
+<section class="mb-space-md bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm flex flex-col items-center">
+<div class="relative w-full h-48 bg-gradient-to-b from-surface-container-high/60 to-surface-container-low flex items-center justify-center overflow-hidden">
+<!-- Background gentle pathway pattern -->
+<svg class="absolute inset-0 w-full h-full text-surface-container-highest/50" fill="none" preserveaspectratio="none" viewbox="0 0 360 192">
+<path d="M-20 192C40 140 120 160 180 110C240 60 300 80 380 20" stroke="currentColor" stroke-linecap="round" stroke-width="28"></path>
+<path d="M180 110C210 130 260 150 320 170" stroke="currentColor" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="16"></path>
+</svg>
+<!-- Visual warm emblem: Andean Sun & Gentle Open Book Path -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-secondary-fixed flex items-center justify-center shadow-lg relative mb-1">
+<div class="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[54px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<span class="font-label-md text-label-md text-secondary bg-secondary-fixed/50 px-3 py-1 rounded-full">
+          Tu esfuerzo sigue seguro
+        </span>
+</div>
+</div>
+<!-- Main Message & Reassuring Context -->
+<div class="p-space-md text-center flex flex-col items-center w-full">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight mb-space-xs text-balance">
+        ¡Ups! Este camino no está disponible en este momento.
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md transition-colors duration-300" id="speech-target-text">
+        Puede que la lección haya cambiado de lugar o que la conexión esté descansando. Todo tu progreso y tus medallas están a salvo en tu teléfono.
+      </p>
+<!-- Badge confirming saved progress -->
+<div class="mt-space-sm inline-flex items-center gap-2 bg-surface-container px-3.5 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Tus 14 palabras aprendidas están guardadas</span>
+</div>
+</div>
+</section>
+<!-- Quick Resolution Options (Large Accessible Touch Targets) -->
+<section aria-label="Opciones para continuar" class="flex flex-col gap-space-sm mb-space-lg">
+<p class="font-label-lg text-label-lg text-primary px-1">
+      ¿Hacia dónde deseas ir ahora?
+    </p>
+<!-- Option 1: Primary Action Button (64px+) -->
+<button class="w-full min-h-[68px] bg-primary-container hover:bg-primary text-on-primary rounded-lg px-space-md py-3 flex items-center justify-between shadow-md active:translate-y-0.5 transition-all text-left" onclick="navigateHome()" type="button">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-bold text-body-bold text-on-primary leading-tight truncate">
+            Volver a mi pantalla de Inicio
+          </span>
+<span class="font-label-md text-label-md text-primary-fixed-dim truncate">
+            Ir a la portada de mi cartilla
+          </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[28px] text-primary-fixed shrink-0">chevron_right</span>
+</button>
+<!-- Option 2: Resume last lesson -->
+<button class="w-full min-h-[64px] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface rounded-lg px-space-md py-3 flex items-center justify-between shadow-sm active:translate-y-0.5 transition-all text-left" onclick="continueLesson()" type="button">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-bold text-body-bold text-on-surface leading-tight truncate">
+            Ir a mi última lección practicada
+          </span>
+<span class="font-label-md text-label-md text-secondary truncate">
+            Continuar: La letra M y sus sonidos
+          </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[26px] text-outline shrink-0">arrow_forward</span>
+</button>
+<!-- Option 3: Offline saved lessons -->
+<button class="w-full min-h-[64px] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface rounded-lg px-space-md py-3 flex items-center justify-between shadow-sm active:translate-y-0.5 transition-all text-left" onclick="openOfflineLessons()" type="button">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">offline_pin</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-body-bold text-body-bold text-on-surface leading-tight truncate">
+              Ver mis lecciones guardadas
+            </span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed shrink-0"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">
+            Funciona sin internet ni saldo móvil
+          </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[26px] text-outline shrink-0">arrow_forward</span>
+</button>
+</section>
+<!-- Community Support Card -->
+<section class="bg-surface-container rounded-lg p-space-md mb-space-lg shadow-sm">
+<div class="flex items-start gap-3 mb-space-sm">
+<div class="w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-body-bold text-body-bold text-primary leading-snug">
+          ¿Te sientes perdido o necesitas ayuda?
+        </h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-0.5">
+          Nadie se queda atrás. Puedes hablar con una persona amable de nuestro equipo de apoyo.
+        </p>
+</div>
+</div>
+<!-- Direct Assistance Buttons -->
+<div class="flex flex-col gap-2.5 pt-1">
+<!-- Call Tutor Button -->
+<a class="min-h-[56px] w-full rounded-full bg-surface-container-lowest hover:bg-surface-bright text-primary px-space-md flex items-center justify-center gap-2 shadow-sm active:translate-y-0.5 transition-transform text-decoration-none" href="tel:1800253222">
+<span class="material-symbols-outlined text-[24px] text-primary" style="font-variation-settings: 'FILL' 1;">call</span>
+<span class="font-body-bold text-body-bold text-primary">Llamar a un tutor comunitario</span>
+<span class="font-label-md text-label-md bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full ml-1 font-semibold">Gratis</span>
+</a>
+<!-- WhatsApp Button -->
+<a class="min-h-[56px] w-full rounded-full bg-surface-container-lowest hover:bg-surface-bright text-on-surface px-space-md flex items-center justify-center gap-2 shadow-sm active:translate-y-0.5 transition-transform text-decoration-none" href="https://wa.me/593999999999" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[24px] text-tertiary" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-body-bold text-body-bold text-on-surface">Escribir por WhatsApp de soporte</span>
+</a>
+</div>
+</section>
+<!-- Community Reading Club Banner (Delight Moment) -->
+<section class="bg-surface-container-lowest rounded-lg p-space-md mb-space-lg shadow-sm flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-[32px]">favorite</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-bold text-body-bold text-on-surface leading-tight">
+        Respira profundo y tómate tu tiempo
+      </p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-0.5">
+        Aprender a leer es un camino lleno de paciencia. Lo estás haciendo muy bien.
+      </p>
+</div>
+</section>
+<!-- Technical Diagnostic Discreet Footnote -->
+<footer class="text-center pt-2 pb-4">
+<p class="font-label-md text-label-md text-outline font-mono select-all">
+      Código de referencia: ERR-404-CAMINO | Alfabet v2.4.1
+    </p>
+<p class="font-label-md text-label-md text-outline-variant mt-1">
+      Ministerio de Educación • República del Ecuador
+    </p>
+</footer>
+</div>
+<script>
+  let isSpeaking = false;
+
+  function toggleAudioSpeech() {
+    const textTarget = document.getElementById('speech-target-text');
+    const audioBox = document.getElementById('audio-icon-box');
+
+    if (!isSpeaking) {
+      isSpeaking = true;
+      // Warm visual highlight feedback
+      textTarget.classList.add('bg-secondary-fixed', 'text-on-secondary-fixed', 'px-2', 'py-1', 'rounded-lg');
+      audioBox.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      audioBox.classList.add('bg-primary', 'text-on-primary');
+
+      if ('speechSynthesis' in window) {
+        const textToRead = "¡Ups! Este camino no está disponible en este momento. Puede que la lección haya cambiado de lugar o que la conexión esté descansando. Todo tu progreso y tus medallas están a salvo en tu teléfono. Toca el botón azul para volver a tu pantalla de inicio.";
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.lang = 'es-EC';
+        utterance.rate = 0.9;
+        
+        utterance.onend = () => {
+          resetAudioStyle(textTarget, audioBox);
+        };
+        utterance.onerror = () => {
+          resetAudioStyle(textTarget, audioBox);
+        };
+        
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      } else {
+        setTimeout(() => {
+          resetAudioStyle(textTarget, audioBox);
+        }, 4000);
+      }
+    } else {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      resetAudioStyle(textTarget, audioBox);
+    }
+  }
+
+  function resetAudioStyle(textTarget, audioBox) {
+    isSpeaking = false;
+    textTarget.classList.remove('bg-secondary-fixed', 'text-on-secondary-fixed', 'px-2', 'py-1', 'rounded-lg');
+    audioBox.classList.remove('bg-primary', 'text-on-primary');
+    audioBox.classList.add('bg-secondary-container', 'text-on-secondary-container');
+  }
+
+  function navigateHome() {
+    window.location.href = '#home';
+  }
+
+  function continueLesson() {
+    window.location.href = '#lesson-continue';
+  }
+
+  function openOfflineLessons() {
+    window.location.href = '#offline-cache';
+  }
+</script></main></body></html>
