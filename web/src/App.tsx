@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const COLOR_GROUPS = [
   {
     title: 'Superficies y Fondos',
@@ -156,7 +158,14 @@ export default function App() {
             <p className="text-label-md font-label-md text-on-surface-variant">Sistema de Diseño & Verificación de Tokens</p>
           </div>
         </div>
-        <div className="flex items-center gap-space-xs">
+        <div className="flex flex-wrap items-center gap-space-xs">
+          <Link
+            to="/design-system"
+            className="px-space-sm py-1.5 rounded-full bg-primary text-on-primary text-label-md font-semibold inline-flex items-center gap-1.5 shadow-sm hover:bg-primary-container transition-colors"
+          >
+            <span className="material-symbols-outlined text-xl">widgets</span>
+            Ver componentes UI
+          </Link>
           <span className="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-md font-semibold inline-flex items-center gap-1.5 shadow-sm">
             <span className="material-symbols-outlined text-xl">palette</span>
             Tokens Verificados
