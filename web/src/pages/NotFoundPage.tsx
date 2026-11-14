@@ -158,12 +158,9 @@ export function NotFoundPage() {
             </p>
           </div>
         </div>
-        <a
-          href="tel:1800-ALFABET"
-          className="px-4 py-2 rounded-xl bg-primary text-on-primary text-label-md font-semibold active:scale-95 shadow-sm transition-transform shrink-0"
-        >
+        <span className="px-4 py-2 rounded-xl bg-surface-container text-on-surface-variant text-label-md font-semibold shrink-0">
           {data.supportActionText}
-        </a>
+        </span>
       </aside>
     </div>
   )

@@ -27,7 +27,7 @@ export function StackLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-on-background flex flex-col selection:bg-secondary-fixed">
+    <div className="min-h-dvh bg-background text-on-background flex flex-col selection:bg-secondary-fixed">
       <TopBar
         title={title}
         subtitle={subtitle}

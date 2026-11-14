@@ -14,7 +14,7 @@ export function ConsentPage() {
 
   const handleSubmit = () => {
     if (!accepted) return
-    navigate('/estudiante/inicio')
+    navigate('/diagnostico/intro')
   }
 
   return (

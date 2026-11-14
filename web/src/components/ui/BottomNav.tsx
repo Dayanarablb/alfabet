@@ -10,7 +10,7 @@ export interface NavItemConfig {
   path: string
 }
 
-const NAV_ITEMS: NavItemConfig[] = [
+const DEFAULT_STUDENT_ITEMS: NavItemConfig[] = [
   { id: 'aprender', label: 'Aprender', icon: 'auto_stories', path: '/estudiante/inicio' },
   { id: 'practicar', label: 'Practicar', icon: 'edit_note', path: '/estudiante/ejercicio' },
   { id: 'progreso', label: 'Mi Progreso', icon: 'stars', path: '/estudiante/progreso' },
@@ -18,16 +18,18 @@ const NAV_ITEMS: NavItemConfig[] = [
 ]
 
 export interface BottomNavProps {
+  items?: NavItemConfig[]
   activeTab?: NavTab
   onTabChange?: (tab: NavTab) => void
   className?: string
 }
 
-/**
- * Determina qué pestaña está activa según la ruta actual en React Router.
- */
-function resolveActiveTab(pathname: string, overrideTab?: NavTab): NavTab {
+function resolveActiveTab(pathname: string, items: NavItemConfig[], overrideTab?: NavTab): NavTab {
   if (overrideTab) return overrideTab
+
+  for (const item of items) {
+    if (pathname.startsWith(item.path)) return item.id
+  }
 
   if (pathname.includes('/progreso')) return 'progreso'
   if (pathname.includes('/tutor')) return 'ayuda'
@@ -53,18 +55,18 @@ function resolveActiveTab(pathname: string, overrideTab?: NavTab): NavTab {
 }
 
 /**
- * Barra inferior fija de navegación principal (Aprender, Practicar, Mi Progreso, Ayuda).
- * Muestra etiquetas completas (≥16px) con quiebre centrado a dos líneas si es necesario
- * y marca automáticamente la pestaña activa según la ruta actual.
+ * Barra inferior fija de navegación. Recibe items por props (por defecto: items del estudiante).
+ * Muestra etiquetas completas (≥16px) con quiebre centrado a dos líneas si es necesario.
  */
 export function BottomNav({
+  items = DEFAULT_STUDENT_ITEMS,
   activeTab: activeTabProp,
   onTabChange,
   className = '',
 }: BottomNavProps) {
   const location = useLocation()
   const navigate = useNavigate()
-  const currentActiveTab = resolveActiveTab(location.pathname, activeTabProp)
+  const currentActiveTab = resolveActiveTab(location.pathname, items, activeTabProp)
 
   const handleTabClick = (item: NavItemConfig) => {
     onTabChange?.(item.id)
@@ -77,14 +79,14 @@ export function BottomNav({
     <nav
       aria-label="Navegación principal de la plataforma"
       className={`
-        fixed bottom-0 left-0 right-0 z-40 pb-safe
+        pb-safe
         bg-surface/95 backdrop-blur-xl
         border-t border-outline-variant/30 shadow-[0_-2px_12px_rgba(0,0,0,0.06)]
         ${className}
       `}
     >
-      <div className="flex justify-around items-center min-h-[76px] py-1.5 px-space-xs max-w-4xl mx-auto">
-        {NAV_ITEMS.map((item) => {
+      <div className="flex justify-around items-center min-h-[76px] py-1.5 px-space-xs">
+        {items.map((item) => {
           const isActive = currentActiveTab === item.id
 
           return (

@@ -9,9 +9,7 @@ export interface BienvenidaData {
   voiceGuideButtonText: string
   startButtonText: string
   haveAccountButtonText: string
-  phoneHelpText: string
-  phoneHelpActionText: string
-  phoneHelpNumber: string
+  helpText: string
 }
 
 export const BIENVENIDA_MOCK: BienvenidaData = {
@@ -26,7 +24,5 @@ export const BIENVENIDA_MOCK: BienvenidaData = {
   voiceGuideButtonText: 'Voz guiada',
   startButtonText: 'Comenzar',
   haveAccountButtonText: 'Ya tengo cuenta',
-  phoneHelpText: '¿Deseas ayuda por teléfono?',
-  phoneHelpActionText: 'Llamar gratis',
-  phoneHelpNumber: '1800-ALFABET',
+  helpText: 'Si necesitas ayuda, pide a alguien de confianza que te acompañe.',
 }

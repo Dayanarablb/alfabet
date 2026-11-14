@@ -2,33 +2,42 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PERFIL_MOCK, type ProfileOption } from '../mocks'
 import { Card, Button, AudioButton, Icon } from '../components/ui'
+import { useAuth } from '../context/useAuth'
+import type { UserRole } from '../context/AuthContext'
 
 /**
  * Pantalla 2: Selección de Perfil (2._selecci_n_de_perfil → /perfil)
- * Permite escoger entre Estudiante, Tutor/Docente y Familiar con audio para cada opción.
+ * - "Familiar" se muestra deshabilitado con etiqueta "Próximamente".
+ * - Guarda el rol en AuthContext antes de navegar a /registro.
  */
 export function ProfileSelectionPage() {
   const navigate = useNavigate()
+  const { setRole } = useAuth()
   const data = PERFIL_MOCK
   const [selectedRole, setSelectedRole] = useState<ProfileOption['id'] | null>(null)
 
   const handleSelect = (profile: ProfileOption) => {
+    if (profile.disabled) return
     setSelectedRole(profile.id)
   }
 
   const handleContinue = () => {
     if (!selectedRole) return
-    const chosen = data.profiles.find((p) => p.id === selectedRole)
-    if (chosen) {
-      navigate(chosen.route)
-    } else {
-      navigate('/registro')
+    // Mapear id del perfil al rol del sistema
+    const roleMap: Record<string, UserRole> = {
+      estudiante: 'estudiante',
+      docente: 'tutor',
     }
+    const mappedRole = roleMap[selectedRole]
+    if (mappedRole) {
+      setRole(mappedRole)
+    }
+    navigate('/registro')
   }
 
   return (
     <div className="flex flex-col w-full py-space-sm gap-space-md">
-      {/* Banner instruccional con narrador de voz */}
+      {/* Banner instruccional */}
       <div className="w-full bg-surface-container-high text-on-surface rounded-2xl p-space-md shadow-sm border border-outline-variant/20 flex items-center justify-between gap-space-sm">
         <div className="flex items-center gap-space-sm min-w-0">
           <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-sm">
@@ -51,7 +60,7 @@ export function ProfileSelectionPage() {
         />
       </div>
 
-      {/* Título principal y subtítulo */}
+      {/* Título principal */}
       <header className="flex flex-col gap-1">
         <div className="flex items-center gap-space-xs">
           <span className="w-2.5 h-2.5 rounded-full bg-secondary-container inline-block" />
@@ -76,7 +85,7 @@ export function ProfileSelectionPage() {
         </div>
       </header>
 
-      {/* Grupo de opciones de perfil táctiles */}
+      {/* Opciones de perfil */}
       <section
         role="radiogroup"
         aria-label="Selecciona tu perfil de usuario"
@@ -84,62 +93,63 @@ export function ProfileSelectionPage() {
       >
         {data.profiles.map((profile) => {
           const isSelected = selectedRole === profile.id
+          const isDisabled = profile.disabled === true
 
           return (
-            <Card
-              key={profile.id}
-              state={isSelected ? 'selected' : 'default'}
-              interactive
-              role="radio"
-              aria-checked={isSelected}
-              onClick={() => handleSelect(profile)}
-              className="min-h-[110px] flex items-center justify-between gap-space-sm p-space-md"
-            >
-              <div className="flex items-center gap-space-md min-w-0 flex-1">
-                {/* Pictograma distintivo */}
-                <div
-                  className={`
-                    w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-colors
-                    ${
-                      isSelected
-                        ? 'bg-primary text-on-primary'
-                        : 'bg-surface-container-high text-primary'
-                    }
-                  `}
-                >
-                  <Icon name={profile.icon} size={32} filled={isSelected} />
-                </div>
-
-                <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-headline-md font-headline-md font-bold text-on-surface">
-                      {profile.title}
-                    </h2>
-                    {isSelected && (
-                      <Icon
-                        name="check_circle"
-                        size={22}
-                        filled
-                        className="text-primary"
-                      />
-                    )}
+            <div key={profile.id} className="relative">
+              <Card
+                state={isSelected ? 'selected' : 'default'}
+                interactive={!isDisabled}
+                role="radio"
+                aria-checked={isSelected}
+                aria-disabled={isDisabled}
+                onClick={() => handleSelect(profile)}
+                className={`min-h-[110px] flex items-center justify-between gap-space-sm p-space-md ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+              >
+                <div className="flex items-center gap-space-md min-w-0 flex-1">
+                  <div
+                    className={`
+                      w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-colors
+                      ${
+                        isSelected
+                          ? 'bg-primary text-on-primary'
+                          : 'bg-surface-container-high text-primary'
+                      }
+                    `}
+                  >
+                    <Icon name={profile.icon} size={32} filled={isSelected} />
                   </div>
-                  <p className="text-body-lg text-on-surface-variant leading-snug">
-                    {profile.subtitle}
-                  </p>
-                </div>
-              </div>
 
-              {/* Botón de Audio independiente por cada opción */}
-              <div onClick={(e) => e.stopPropagation()}>
-                <AudioButton
-                  text={profile.audioText}
-                  size="md"
-                  variant={isSelected ? 'amber' : 'surface'}
-                  aria-label={`Escuchar opción: ${profile.title}`}
-                />
-              </div>
-            </Card>
+                  <div className="flex flex-col min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h2 className="text-headline-md font-headline-md font-bold text-on-surface">
+                        {profile.title}
+                      </h2>
+                      {isSelected && (
+                        <Icon name="check_circle" size={22} filled className="text-primary" />
+                      )}
+                      {isDisabled && profile.comingSoon && (
+                        <span className="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">
+                          Próximamente
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-body-lg text-on-surface-variant leading-snug">
+                      {profile.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                <div onClick={(e) => e.stopPropagation()}>
+                  <AudioButton
+                    text={profile.audioText}
+                    size="md"
+                    variant={isSelected ? 'amber' : 'surface'}
+                    aria-label={`Escuchar opción: ${profile.title}`}
+                  />
+                </div>
+              </Card>
+            </div>
           )
         })}
       </section>
@@ -159,7 +169,7 @@ export function ProfileSelectionPage() {
         </div>
       )}
 
-      {/* Botón Continuar (68px de alto, activo al elegir perfil) */}
+      {/* Botón Continuar */}
       <div className="pt-space-sm">
         <Button
           variant={selectedRole ? 'primary' : 'secondary'}

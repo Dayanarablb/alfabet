@@ -1,15 +1,21 @@
-import { useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect, type FormEvent } from 'react'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { LOGIN_MOCK } from '../mocks'
 import { Card, Button, AudioButton, TextField, Icon } from '../components/ui'
+import { useAuth } from '../context/useAuth'
+import type { StackLayoutContext } from '../layouts/StackLayout'
 
 /**
  * Pantalla 3: Inicio de Sesión (c4._inicio_de_sesi_n → /login)
- * Acceso adaptado con opciones de voz, biometría o credenciales escritas.
+ * - Selector de rol simulado solo visible en DEV.
+ * - Sin "Acceso con mi huella".
+ * - Navega a /estudiante/inicio o /tutor/inicio según rol.
  */
 export function LoginPage() {
   const navigate = useNavigate()
+  const { login } = useAuth()
   const data = LOGIN_MOCK
+  const outletCtx = useOutletContext<StackLayoutContext | null>()
 
   const [simulatedRole, setSimulatedRole] = useState<'estudiante' | 'tutor'>('estudiante')
   const [voiceLoginActive, setVoiceLoginActive] = useState(false)
@@ -18,9 +24,15 @@ export function LoginPage() {
   const [showPin, setShowPin] = useState(false)
   const [micActiveCedula, setMicActiveCedula] = useState(false)
 
+  useEffect(() => {
+    outletCtx?.setTitle?.(data.pageTitle)
+    outletCtx?.setSubtitle?.(data.pageSubtitle)
+    outletCtx?.setAudioText?.(data.audioGuideText)
+  }, [outletCtx, data])
+
   const handleSubmit = (e?: FormEvent) => {
     if (e) e.preventDefault()
-    // Navegación simulada según el rol seleccionado
+    login(simulatedRole)
     if (simulatedRole === 'tutor') {
       navigate('/tutor/inicio')
     } else {
@@ -30,7 +42,7 @@ export function LoginPage() {
 
   return (
     <div className="flex flex-col w-full py-space-xs gap-space-md">
-      {/* Banner cívico y de bienvenida */}
+      {/* Banner de bienvenida */}
       <div className="w-full rounded-2xl bg-surface-container shadow-sm p-space-md flex items-center justify-between gap-space-sm border border-outline-variant/20">
         <div className="flex items-center gap-space-sm min-w-0">
           <div className="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-md">
@@ -53,60 +65,58 @@ export function LoginPage() {
         />
       </div>
 
-      {/* Selector de rol simulado (para probar flujo Estudiante vs Tutor sin backend) */}
-      <div className="bg-surface-container-low p-space-sm rounded-2xl border border-outline-variant/30 flex flex-col gap-2">
-        <span className="text-label-md font-semibold text-on-surface-variant">
-          Simular inicio de sesión como:
-        </span>
-        <div className="grid grid-cols-2 gap-space-xs">
-          <button
-            type="button"
-            onClick={() => setSimulatedRole('estudiante')}
-            aria-pressed={simulatedRole === 'estudiante'}
-            className={`
-              py-2.5 px-3 rounded-xl text-label-md font-semibold flex items-center justify-center gap-2 transition-all
-              ${
-                simulatedRole === 'estudiante'
-                  ? 'bg-primary text-on-primary shadow-sm'
-                  : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
-              }
-            `}
-          >
-            <Icon name="school" size={20} filled={simulatedRole === 'estudiante'} />
-            <span>Estudiante</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setSimulatedRole('tutor')}
-            aria-pressed={simulatedRole === 'tutor'}
-            className={`
-              py-2.5 px-3 rounded-xl text-label-md font-semibold flex items-center justify-center gap-2 transition-all
-              ${
-                simulatedRole === 'tutor'
-                  ? 'bg-primary text-on-primary shadow-sm'
-                  : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
-              }
-            `}
-          >
-            <Icon name="co_present" size={20} filled={simulatedRole === 'tutor'} />
-            <span>Tutor</span>
-          </button>
+      {/* Selector de rol simulado — solo en desarrollo */}
+      {import.meta.env.DEV && (
+        <div className="bg-surface-container-low p-space-sm rounded-2xl border border-outline-variant/30 flex flex-col gap-2">
+          <span className="text-label-md font-semibold text-on-surface-variant">
+            Simular inicio de sesión como:
+          </span>
+          <div className="grid grid-cols-2 gap-space-xs">
+            <button
+              type="button"
+              onClick={() => setSimulatedRole('estudiante')}
+              aria-pressed={simulatedRole === 'estudiante'}
+              className={`
+                py-2.5 px-3 rounded-xl text-label-md font-semibold flex items-center justify-center gap-2 transition-all
+                ${
+                  simulatedRole === 'estudiante'
+                    ? 'bg-primary text-on-primary shadow-sm'
+                    : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
+                }
+              `}
+            >
+              <Icon name="school" size={20} filled={simulatedRole === 'estudiante'} />
+              <span>Estudiante</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setSimulatedRole('tutor')}
+              aria-pressed={simulatedRole === 'tutor'}
+              className={`
+                py-2.5 px-3 rounded-xl text-label-md font-semibold flex items-center justify-center gap-2 transition-all
+                ${
+                  simulatedRole === 'tutor'
+                    ? 'bg-primary text-on-primary shadow-sm'
+                    : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
+                }
+              `}
+            >
+              <Icon name="co_present" size={20} filled={simulatedRole === 'tutor'} />
+              <span>Tutor</span>
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Guía de Audio Destacada */}
+      {/* Guía de Audio */}
       <Card state="default" className="bg-surface-container-high flex items-center justify-between gap-space-sm p-space-md">
         <div className="flex items-center gap-space-sm min-w-0">
           <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-sm">
             <Icon name="volume_up" size={26} filled />
           </div>
           <div className="min-w-0">
-            <p className="text-body-bold font-bold text-on-surface">
-              {data.audioGuideTitle}
-            </p>
-            <p className="text-label-md text-on-surface-variant truncate">
-              {data.audioGuideSubtitle}
-            </p>
+            <p className="text-body-bold font-bold text-on-surface">{data.audioGuideTitle}</p>
+            <p className="text-label-md text-on-surface-variant truncate">{data.audioGuideSubtitle}</p>
           </div>
         </div>
         <AudioButton
@@ -117,7 +127,7 @@ export function LoginPage() {
         />
       </Card>
 
-      {/* Entrada con Voz (Opción Hero) */}
+      {/* Entrada con Voz */}
       <div className="w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-outline-variant/20 flex flex-col items-center gap-space-sm text-center">
         <span className="text-label-md text-on-surface-variant font-medium">
           {data.voiceLoginTag}
@@ -171,9 +181,8 @@ export function LoginPage() {
         <div className="h-0.5 flex-1 bg-surface-container-high rounded-full" />
       </div>
 
-      {/* Formulario tradicional accesible */}
+      {/* Formulario */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-space-md">
-        {/* Campo Teléfono o Cédula */}
         <TextField
           label={data.cedulaLabel}
           placeholder={data.cedulaPlaceholder}
@@ -187,7 +196,7 @@ export function LoginPage() {
           inputMode="numeric"
         />
 
-        {/* Campo Clave o PIN */}
+        {/* Campo PIN */}
         <div className="flex flex-col gap-space-xs">
           <div className="flex items-center justify-between">
             <label
@@ -220,25 +229,7 @@ export function LoginPage() {
           </div>
         </div>
 
-        {/* Acceso con Huella */}
-        <button
-          type="button"
-          onClick={() => handleSubmit()}
-          className="w-full min-h-[64px] bg-surface-container rounded-2xl p-space-sm flex items-center justify-between shadow-sm active:translate-y-0.5 transition-all text-on-surface hover:bg-surface-container-high focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
-        >
-          <div className="flex items-center gap-space-sm">
-            <div className="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
-              <Icon name="fingerprint" size={28} />
-            </div>
-            <div className="text-left">
-              <p className="text-body-bold font-bold">{data.biometricTitle}</p>
-              <p className="text-label-md text-on-surface-variant">{data.biometricSubtitle}</p>
-            </div>
-          </div>
-          <Icon name="touch_app" size={26} className="text-primary" />
-        </button>
-
-        {/* Botón Principal de Envío (72px) */}
+        {/* Botón Principal */}
         <div className="pt-space-xs">
           <Button
             variant="primary"
@@ -247,12 +238,12 @@ export function LoginPage() {
             trailingIcon="arrow_forward"
             aria-label={`Ingresar a mis clases como ${simulatedRole}`}
           >
-            {data.submitButtonText} ({simulatedRole === 'tutor' ? 'Tutor' : 'Estudiante'})
+            {data.submitButtonText}
           </Button>
         </div>
       </form>
 
-      {/* Tarjeta de Motivación Comunitaria */}
+      {/* Tarjeta de Motivación */}
       <div className="w-full p-space-md bg-surface-container-low rounded-2xl shadow-sm flex items-center gap-space-sm border border-outline-variant/20">
         <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
           <Icon name="diversity_3" size={26} />

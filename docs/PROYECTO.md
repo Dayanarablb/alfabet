@@ -26,6 +26,15 @@ Los code.html usan Tailwind por CDN: NO usar el CDN, convertir a componentes Rea
 - mobile_blank: sin barra | mobile_stack: boton volver | mobile_tab: barra inferior
   (Aprender, Practicar, Mi Progreso, Ayuda)
 
+## Responsive
+- Breakpoints:
+  - Móvil: <640px
+  - Tablet: 640px - 1023px
+  - Escritorio: >=1024px
+- Estudiante: Columna centrada con ancho máximo de 680px en todos los tamaños. En pantallas >=768px la barra inferior se limita a 680px y queda centrada.
+- Tutor: En <1024px barra inferior (Inicio, Estudiantes, Dificultades, Perfil); en >=1024px barra lateral izquierda fija y contenido de hasta 1100px con rejilla.
+- Viewport: Uso de min-h-dvh, respeto de safe areas (pt-safe, pb-safe), sin desbordamiento horizontal en 360px y respeto de prefers-reduced-motion.
+
 ## Reglas
 - No modificar /design. Commits pequenos. Sin logica de negocio en componentes UI.
 - Ningun secreto en el repositorio.

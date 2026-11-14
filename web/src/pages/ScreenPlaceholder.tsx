@@ -12,7 +12,7 @@ export interface ScreenPlaceholderProps {
 
 /**
  * Componente de página vacía para maquetar rutas del MVP.
- * Presenta el título accesible, el código de pantalla Stitch y su tipo de shell.
+ * Los códigos Stitch y el tipo de shell solo se muestran en desarrollo (import.meta.env.DEV).
  */
 export function ScreenPlaceholder({
   title,
@@ -20,14 +20,19 @@ export function ScreenPlaceholder({
   description,
   shellType,
 }: ScreenPlaceholderProps) {
-  // Intentar actualizar el TopBar si el layout es StackLayout
   const outletCtx = useOutletContext<StackLayoutContext | null>()
 
   useEffect(() => {
     if (outletCtx?.setTitle) {
       outletCtx.setTitle(title)
-      outletCtx.setSubtitle(`Pantalla ${screenCode}`)
-      outletCtx.setAudioText(`${title}. Código de pantalla ${screenCode}`)
+      // En producción no exponemos el código interno
+      if (import.meta.env.DEV) {
+        outletCtx.setSubtitle(`Pantalla ${screenCode}`)
+        outletCtx.setAudioText(`${title}. Código de pantalla ${screenCode}`)
+      } else {
+        outletCtx.setSubtitle('')
+        outletCtx.setAudioText(title)
+      }
     }
   }, [outletCtx, title, screenCode])
 
@@ -35,14 +40,17 @@ export function ScreenPlaceholder({
     <div className="flex flex-col gap-space-md py-space-sm flex-1 justify-center">
       <div className="flex items-start justify-between gap-space-sm">
         <div className="flex flex-col gap-1.5 min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-mono text-xs font-semibold">
-              Código: {screenCode}
-            </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-mono text-xs font-semibold">
-              {shellType}
-            </span>
-          </div>
+          {/* Badges de Stitch solo en desarrollo */}
+          {import.meta.env.DEV && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-mono text-xs font-semibold">
+                Código: {screenCode}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-mono text-xs font-semibold">
+                {shellType}
+              </span>
+            </div>
+          )}
           <h1 className="text-headline-lg-mobile font-headline-lg-mobile text-primary tracking-tight">
             {title}
           </h1>
@@ -51,7 +59,7 @@ export function ScreenPlaceholder({
           )}
         </div>
         <AudioButton
-          text={`${title}. Código de pantalla: ${screenCode}`}
+          text={title}
           size="md"
           variant="amber"
           aria-label={`Escuchar título de la pantalla ${title}`}

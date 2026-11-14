@@ -52,6 +52,6 @@ export const NOT_FOUND_MOCK: NotFoundData = {
     },
   ],
   supportTitle: '¿Necesitas ayuda de un tutor comunitario?',
-  supportSubtitle: 'Estamos disponibles para guiarte por teléfono paso a paso.',
-  supportActionText: 'Llamar a mi tutor',
+  supportSubtitle: 'Estamos disponibles para guiarte paso a paso.',
+  supportActionText: 'Pedir ayuda',
 }

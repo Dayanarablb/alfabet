@@ -4,7 +4,8 @@ export interface ProfileOption {
   subtitle: string
   audioText: string
   icon: string
-  route: string
+  disabled?: boolean
+  comingSoon?: boolean
 }
 
 export interface PerfilData {
@@ -31,7 +32,6 @@ export const PERFIL_MOCK: PerfilData = {
       subtitle: 'Quiero aprender a leer y escribir',
       audioText: 'Opción uno: Estudiante. Quiero aprender a leer y escribir.',
       icon: 'menu_book',
-      route: '/registro',
     },
     {
       id: 'docente',
@@ -39,15 +39,15 @@ export const PERFIL_MOCK: PerfilData = {
       subtitle: 'Soy profesor o guía pedagógico',
       audioText: 'Opción dos: Tutor o Docente. Soy profesor o guía pedagógico.',
       icon: 'co_present',
-      route: '/registro',
     },
     {
       id: 'familiar',
       title: 'Familiar',
       subtitle: 'Acompaño a un familiar en sus estudios',
-      audioText: 'Opción tres: Familiar. Acompaño a un familiar en sus estudios.',
+      audioText: 'Opción tres: Familiar. Próximamente disponible.',
       icon: 'diversity_1',
-      route: '/registro',
+      disabled: true,
+      comingSoon: true,
     },
   ],
 }

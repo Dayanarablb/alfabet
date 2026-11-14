@@ -39,7 +39,7 @@ export const REGISTRO_MOCK: RegistroData = {
   phoneLabel: 'Tu teléfono o código',
   phonePlaceholder: '099 123 4567',
   phoneAudioText: 'Escribe tu número de teléfono celular para guardar tus avances.',
-  fastAccessText: 'Ingresar con código SMS o huella',
+  fastAccessText: 'Acceso rápido sin escribir',
   submitButtonText: 'Entrar a mi clase',
-  tutorHelpText: '¿Necesitas ayuda de un tutor?',
+  tutorHelpText: '¿Necesitas ayuda de un guía?',
 }
