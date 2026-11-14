@@ -34,6 +34,12 @@ export function ScreenPlaceholder({
         outletCtx.setAudioText(title)
       }
     }
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, title, screenCode])
 
   return (

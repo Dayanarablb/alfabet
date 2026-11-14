@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { TopBar } from '../components/ui'
+import { useScreenTitleContext } from '../context/useScreenTitleContext'
 
 export interface StackLayoutContext {
   setTitle: (title: string) => void
@@ -11,12 +11,11 @@ export interface StackLayoutContext {
 /**
  * Layout con barra superior de navegación y botón volver (mobile_stack).
  * Contenedor de una columna en móvil y centrado de máximo 680px en escritorio.
+ * Vincula el título dinámico desde ScreenTitleContext y provee compatibilidad con StackLayoutContext.
  */
 export function StackLayout() {
   const navigate = useNavigate()
-  const [title, setTitle] = useState('Alfabet')
-  const [subtitle, setSubtitle] = useState<string | undefined>()
-  const [audioText, setAudioText] = useState<string | undefined>()
+  const { title, subtitle, audioText, setScreenTitle } = useScreenTitleContext()
 
   const handleBack = () => {
     if (window.history.length > 1) {
@@ -24,6 +23,18 @@ export function StackLayout() {
     } else {
       navigate('/')
     }
+  }
+
+  const setTitle = (newTitle: string) => {
+    setScreenTitle(newTitle, subtitle, audioText)
+  }
+
+  const setSubtitle = (newSubtitle: string) => {
+    setScreenTitle(title, newSubtitle, audioText)
+  }
+
+  const setAudioText = (newAudioText: string) => {
+    setScreenTitle(title, subtitle, newAudioText)
   }
 
   return (

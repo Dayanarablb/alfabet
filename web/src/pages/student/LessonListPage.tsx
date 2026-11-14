@@ -18,6 +18,12 @@ export function LessonListPage() {
     outletCtx?.setTitle?.('Lecciones de Letras')
     outletCtx?.setSubtitle?.('Elige una letra para practicar')
     outletCtx?.setAudioText?.('Lista de lecciones de letras. Toca la letra que quieras aprender hoy.')
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx])
 
   useEffect(() => {

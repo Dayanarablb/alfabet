@@ -1,16 +1,36 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { CONSENTIMIENTO_MOCK } from '../mocks'
 import { Card, Button, AudioButton, Icon } from '../components/ui'
+import { useAuth } from '../context/useAuth'
+import type { StackLayoutContext } from '../layouts/StackLayout'
 
 /**
  * Pantalla 5: Consentimiento Informado para Menores (c8._consentimiento_informado_para_menores → /consentimiento)
- * Formato de lectura fácil, 4 puntos clave UNESCO con audio individual y casilla de confirmación.
+ * - Título TopBar: "Autorización".
+ * - Utiliza el nombre del estudiante ingresado en /registro.
+ * - 4 puntos verídicos de privacidad y cuidado sin afirmaciones falsas.
  */
 export function ConsentPage() {
   const navigate = useNavigate()
   const data = CONSENTIMIENTO_MOCK
+  const outletCtx = useOutletContext<StackLayoutContext | null>()
+  const { user } = useAuth()
   const [accepted, setAccepted] = useState(false)
+
+  const studentDisplayName = user?.name?.trim() ? user.name : 'Estudiante'
+
+  useEffect(() => {
+    outletCtx?.setTitle?.('Autorización')
+    outletCtx?.setSubtitle?.('Cuidado y protección de datos')
+    outletCtx?.setAudioText?.(data.fullAudioText)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
+  }, [outletCtx, data.fullAudioText])
 
   const handleSubmit = () => {
     if (!accepted) return
@@ -50,7 +70,7 @@ export function ConsentPage() {
         <div className="flex items-center gap-space-xs text-secondary">
           <Icon name="badge" size={24} />
           <h2 className="text-label-lg font-bold text-on-surface">
-            Datos de la matrícula educativa
+            Datos de autorización
           </h2>
         </div>
 
@@ -65,7 +85,8 @@ export function ConsentPage() {
                 {data.studentTitle}
               </p>
               <p className="text-body-bold font-bold text-primary truncate">
-                {data.studentName} <span className="font-normal text-on-surface-variant text-sm">({data.studentAge})</span>
+                {studentDisplayName}{' '}
+                <span className="font-normal text-on-surface-variant text-sm">(Menor de 18 años)</span>
               </p>
               <p className="text-label-md text-secondary truncate text-xs">
                 {data.studentProgram}
@@ -83,7 +104,7 @@ export function ConsentPage() {
                 {data.representativeTitle}
               </p>
               <p className="text-body-bold font-bold text-on-surface truncate">
-                {data.representativeName}
+                Madre, padre o tutor responsable
               </p>
               <p className="text-label-md text-on-surface-variant text-xs">
                 {data.representativeRelation}
@@ -150,11 +171,12 @@ export function ConsentPage() {
               className="w-7 h-7 mt-0.5 rounded-lg text-primary focus:ring-0 cursor-pointer accent-primary shrink-0"
             />
             <span className="text-body-bold font-semibold text-on-surface leading-snug">
-              {data.checkboxLabel}
+              He leído o escuchado y acepto la autorización de uso educativo para{' '}
+              <strong className="text-primary">{studentDisplayName}</strong>.
             </span>
           </label>
           <AudioButton
-            text={data.checkboxAudioText}
+            text={`Casilla de confirmación: He leído o escuchado y acepto la autorización de uso educativo para ${studentDisplayName}.`}
             size="sm"
             variant="surface"
           />
@@ -168,7 +190,7 @@ export function ConsentPage() {
             disabled={!accepted}
             onClick={handleSubmit}
             icon="check_circle"
-            aria-label="Aceptar consentimiento y comenzar lecciones"
+            aria-label="Aceptar consentimiento y comenzar diagnóstico"
           >
             {data.submitButtonText}
           </Button>

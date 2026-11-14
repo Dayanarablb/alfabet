@@ -44,6 +44,12 @@ export function ExerciseSelectionPage() {
     outletCtx?.setTitle?.(`Ejercicio de Selección`)
     outletCtx?.setSubtitle?.(`Paso ${state.currentExerciseIndex + 1} de ${state.exercises.length || 1}`)
     outletCtx?.setAudioText?.(audioPrompt)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, audioPrompt, state.currentExerciseIndex, state.exercises.length])
 
   const handleSelect = (optionId: string) => {

@@ -43,6 +43,12 @@ export function LessonDetailPage() {
       outletCtx?.setSubtitle?.(`Conociendo la letra ${lesson.letter}`)
       outletCtx?.setAudioText?.(lesson.audioText)
     }
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [lesson, outletCtx])
 
   const handleStartExercise = () => {

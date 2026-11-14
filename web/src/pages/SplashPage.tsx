@@ -39,8 +39,7 @@ export function SplashPage() {
     <div className="w-full flex flex-col justify-center items-center py-space-sm flex-1">
       {/* Tarjeta contenedora inmersiva en azul marino profundo */}
       <div
-        className="relative w-full rounded-3xl bg-primary-container text-on-primary overflow-hidden shadow-2xl p-space-md flex flex-col justify-between"
-        style={{ minHeight: '84vh' }}
+        className="relative w-full rounded-3xl bg-primary-container text-on-primary shadow-2xl p-space-md flex flex-col justify-between min-h-[520px]"
       >
         {/* Halos ambientales suaves */}
         <div

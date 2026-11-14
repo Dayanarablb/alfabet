@@ -17,6 +17,12 @@ export function LessonSummaryPage() {
     outletCtx?.setTitle?.('Resumen de Lección')
     outletCtx?.setSubtitle?.('¡Lección completada!')
     outletCtx?.setAudioText?.(summaryAudio)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, summaryAudio])
 
   const handleFinish = () => {

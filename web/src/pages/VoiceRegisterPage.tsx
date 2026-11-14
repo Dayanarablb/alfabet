@@ -10,11 +10,11 @@ import type { StackLayoutContext } from '../layouts/StackLayout'
  * Pantalla 4: Registro Asistido por Voz (3._registro_asistido_por_voz → /registro)
  * - Estudiante: muestra pregunta "¿Tienes menos de 18 años?" → Sí va a /consentimiento, No a /diagnostico/intro.
  * - Tutor: sin pregunta de edad ni diagnóstico; va directo a /tutor/inicio.
- * - Elimina "Ingresar con código SMS o huella".
+ * - Guarda el nombre registrado en AuthContext para que se use en /consentimiento y el resto de la app.
  */
 export function VoiceRegisterPage() {
   const navigate = useNavigate()
-  const { role, setIsMinor } = useAuth()
+  const { role, setIsMinor, setRegisteredName } = useAuth()
   const data = REGISTRO_MOCK
   const outletCtx = useOutletContext<StackLayoutContext | null>()
 
@@ -24,16 +24,25 @@ export function VoiceRegisterPage() {
   const [nameMicActive, setNameMicActive] = useState(false)
   const [phoneMicActive, setPhoneMicActive] = useState(false)
 
-  // Título dinámico en TopBar
+  // Título dinámico en TopBar con limpieza al desmontar
   useEffect(() => {
     const pageTitle = role === 'tutor' ? 'Registro de tutor' : 'Tu registro'
     outletCtx?.setTitle?.(pageTitle)
     outletCtx?.setSubtitle?.('Cuéntanos tu nombre para comenzar')
     outletCtx?.setAudioText?.(data.instructionAudioText)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, role, data.instructionAudioText])
 
   const handleMinorAnswer = (isMinor: boolean) => {
     setIsMinor(isMinor)
+    if (nombre.trim()) {
+      setRegisteredName(nombre.trim())
+    }
     if (isMinor) {
       navigate('/consentimiento')
     } else {
@@ -43,10 +52,11 @@ export function VoiceRegisterPage() {
 
   const handleSubmit = (e?: FormEvent) => {
     if (e) e.preventDefault()
+    if (nombre.trim()) {
+      setRegisteredName(nombre.trim())
+    }
     if (role === 'tutor') {
       navigate('/tutor/inicio')
-    } else {
-      // La pregunta de edad se muestra abajo; aquí no navegamos todavía
     }
   }
 

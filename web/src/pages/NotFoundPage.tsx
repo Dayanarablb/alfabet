@@ -19,6 +19,12 @@ export function NotFoundPage() {
       outletCtx.setSubtitle('Página no encontrada')
       outletCtx.setAudioText(data.audioGuideText)
     }
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, data])
 
   return (

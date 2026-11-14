@@ -21,6 +21,12 @@ export function ExerciseSuccessFeedbackPage() {
     outletCtx?.setTitle?.('¡Excelente trabajo!')
     outletCtx?.setSubtitle?.('Respuesta correcta')
     outletCtx?.setAudioText?.(tutorAudioText)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, tutorAudioText])
 
   const handleContinue = () => {

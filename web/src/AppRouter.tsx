@@ -19,6 +19,7 @@ import {
   LessonSummaryPage,
 } from './pages/student'
 import { AuthProvider } from './context/AuthContext'
+import { ScreenTitleProvider } from './context/ScreenTitleContext'
 import { LessonSessionProvider } from './context/LessonSessionContext'
 import { RoleGuard } from './components/RoleGuard'
 import App from './App'
@@ -52,8 +53,9 @@ function TutorGuard() {
 export function AppRouter() {
   return (
     <AuthProvider>
-      <LessonSessionProvider>
-        <Routes>
+      <ScreenTitleProvider>
+        <LessonSessionProvider>
+          <Routes>
           {/* ── Rutas públicas con BlankLayout ─────────────────── */}
           <Route element={<BlankLayout />}>
             <Route path="/" element={<WelcomePage />} />
@@ -248,6 +250,7 @@ export function AppRouter() {
           <Route path="/tutor/perfil" element={<Navigate to="/tutor/inicio" replace />} />
         </Routes>
       </LessonSessionProvider>
-    </AuthProvider>
+    </ScreenTitleProvider>
+  </AuthProvider>
   )
 }

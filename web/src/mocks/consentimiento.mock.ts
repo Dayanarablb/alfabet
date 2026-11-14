@@ -13,11 +13,8 @@ export interface ConsentimientoData {
   bannerSubtitle: string
   fullAudioText: string
   studentTitle: string
-  studentName: string
-  studentAge: string
   studentProgram: string
   representativeTitle: string
-  representativeName: string
   representativeRelation: string
   pointsSectionTitle: string
   pointsSectionStandard: string
@@ -28,61 +25,58 @@ export interface ConsentimientoData {
 }
 
 export const CONSENTIMIENTO_MOCK: ConsentimientoData = {
-  pageTitle: 'Autorización de Cuidado Educativo',
-  headerBadge: 'Lectura Fácil • MinEduc Ecuador',
+  pageTitle: 'Autorización',
+  headerBadge: 'Lectura Fácil • Compromiso de Cuidado',
   bannerTitle: 'Autorización y cuidado de menores',
-  bannerSubtitle: 'Toca el altavoz naranja para escuchar la explicación completa en voz humana clara y pausada.',
+  bannerSubtitle: 'Toca el altavoz naranja para escuchar la explicación completa en voz clara y pausada.',
   fullAudioText:
-    'Autorización y cuidado de menores. Este documento garantiza que los datos y la voz del estudiante están protegidos, son para fines educativos y la plataforma es totalmente gratuita.',
-  studentTitle: 'Estudiante inscrito',
-  studentName: 'David Pilataxi',
-  studentAge: '15 años',
-  studentProgram: 'Programa de Alfabetización Juvenil y Nivelación',
-  representativeTitle: 'Representante legal acreditado',
-  representativeName: 'Manuel Pilataxi',
-  representativeRelation: 'Parentesco: Padre / Tutor legal',
-  pointsSectionTitle: 'Compromiso de cuidado (4 puntos)',
-  pointsSectionStandard: 'Estándar UNESCO',
+    'Autorización para el uso de la aplicación educativa. Este documento explica de forma clara y transparente cómo se cuidan los datos y la privacidad del estudiante menor de edad.',
+  studentTitle: 'Estudiante',
+  studentProgram: 'Programa de Alfabetización y Nivelación',
+  representativeTitle: 'Representante legal',
+  representativeRelation: 'Madre, padre o tutor responsable',
+  pointsSectionTitle: 'Compromiso de cuidado y privacidad (4 puntos)',
+  pointsSectionStandard: 'Protección de datos',
   points: [
     {
       number: 1,
-      title: '¿Para qué usamos la aplicación?',
+      title: '¿Para qué se usa esta aplicación?',
       description:
-        'Práctica de lectura guiada por voz, reconocimiento de letras y ejercicios de cálculo diario diseñados para la vida cotidiana de David.',
+        'Se utiliza exclusivamente para apoyar el aprendizaje de lectura y escritura: practicar los sonidos de las letras, reconocer palabras cotidianas y realizar ejercicios guiados paso a paso.',
       audioText:
-        'Punto 1: ¿Para qué usamos la aplicación? Práctica de lectura guiada por voz, reconocimiento de letras y ejercicios de cálculo diario.',
+        'Punto 1: ¿Para qué se usa esta aplicación? Se utiliza exclusivamente para practicar lectura, sonidos de letras y ejercicios educativos paso a paso.',
       icon: 'auto_stories',
     },
     {
       number: 2,
-      title: 'Protección de la voz y datos personales',
+      title: 'El audio de voz no se almacena',
       description:
-        'La voz grabada se procesa de forma segura en el dispositivo, se borra automáticamente cada 30 días y nunca se comparte con terceros ni empresas comerciales.',
+        'El reconocimiento de voz funciona únicamente en el momento de la práctica para evaluar la pronunciación. Las grabaciones de voz no se guardan en ningún servidor ni se almacenan en archivos.',
       audioText:
-        'Punto 2: Protección de la voz y datos. La voz grabada se procesa en el dispositivo, se borra cada 30 días y nunca se comparte.',
-      icon: 'lock_reset',
+        'Punto 2: El audio de voz no se almacena. La voz solo se escucha en el instante de la práctica y nunca queda guardada en ningún servidor.',
+      icon: 'mic_off',
     },
     {
       number: 3,
-      title: 'Sin publicidad ni costos ocultos',
+      title: 'Solo datos mínimos y sin servicios externos',
       description:
-        'La plataforma es 100% gratuita, educativa y pública con el aval del Ministerio de Educación de Ecuador. No contiene anuncios ni cobros.',
+        'Solo solicitamos el nombre para personalizar las lecciones. No compartimos ni vendemos datos personales de menores de edad con empresas, anunciantes ni plataformas externas.',
       audioText:
-        'Punto 3: Sin publicidad ni costos. La plataforma es gratuita, pública y sin anuncios comerciales.',
-      icon: 'sentiment_satisfied',
+        'Punto 3: Solo datos mínimos y sin servicios externos. Solo pedimos el nombre y nunca compartimos datos de menores con terceros.',
+      icon: 'shield',
     },
     {
       number: 4,
-      title: 'Derecho a revocar en todo momento',
+      title: 'El representante puede revocar el permiso',
       description:
-        'El padre o tutor puede pausar o cancelar el permiso en cualquier momento desde su teléfono, sin perder el cupo ni afectar los estudios presenciales de David.',
+        'El padre, madre o tutor puede retirar la autorización en cualquier momento y solicitar la eliminación de los datos registrados sin ningún inconveniente.',
       audioText:
-        'Punto 4: Derecho a revocar. Puedes pausar o cancelar el permiso cuando desees desde tu teléfono sin perder el cupo.',
+        'Punto 4: El representante puede revocar el permiso cuando lo desee y solicitar el borrado de sus datos en cualquier momento.',
       icon: 'cancel',
     },
   ],
-  checkboxLabel: 'He escuchado y acepto la autorización de uso educativo para David Pilataxi.',
+  checkboxLabel: 'He leído o escuchado y acepto la autorización de uso educativo.',
   checkboxAudioText:
-    'Casilla de confirmación: He escuchado y acepto la autorización de uso educativo para David Pilataxi.',
-  submitButtonText: 'Aceptar y comenzar lecciones',
+    'Casilla de confirmación: He leído o escuchado y acepto la autorización de uso educativo.',
+  submitButtonText: 'Aceptar y continuar',
 }

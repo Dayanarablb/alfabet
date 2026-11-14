@@ -28,6 +28,12 @@ export function LoginPage() {
     outletCtx?.setTitle?.(data.pageTitle)
     outletCtx?.setSubtitle?.(data.pageSubtitle)
     outletCtx?.setAudioText?.(data.audioGuideText)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, data])
 
   const handleSubmit = (e?: FormEvent) => {

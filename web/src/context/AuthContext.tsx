@@ -7,6 +7,7 @@ const STORAGE_KEYS = {
   ROLE: 'alfabet_role',
   USER: 'alfabet_user',
   IS_MINOR: 'alfabet_is_minor',
+  REGISTERED_NAME: 'alfabet_registered_name',
 } as const
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -63,12 +64,44 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  const setRegisteredName = useCallback((name: string) => {
+    const trimmed = name.trim()
+    setUserState((prev) => {
+      const updated: User = prev
+        ? { ...prev, name: trimmed || prev.name }
+        : {
+            id: `user_${Date.now()}`,
+            name: trimmed || 'Estudiante',
+            role: 'estudiante',
+          }
+      try {
+        sessionStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(updated))
+        if (trimmed) {
+          sessionStorage.setItem(STORAGE_KEYS.REGISTERED_NAME, trimmed)
+        }
+      } catch {
+        // Ignorar
+      }
+      return updated
+    })
+  }, [])
+
   const login = useCallback((chosenRole: UserRole, userData?: Partial<User>) => {
+    let savedName = userData?.name
+    if (!savedName) {
+      try {
+        savedName = sessionStorage.getItem(STORAGE_KEYS.REGISTERED_NAME) ?? undefined
+      } catch {
+        // Ignorar
+      }
+    }
+
     const newUser: User = {
       id: userData?.id ?? `user_${Date.now()}`,
-      name: userData?.name ?? (chosenRole === 'estudiante' ? 'Carlos Andrade' : 'Profesora Elena'),
+      name: savedName ?? (chosenRole === 'estudiante' ? 'Carlos Andrade' : 'Profesora Elena'),
       role: chosenRole,
       email: userData?.email,
+      phone: userData?.phone,
       token: userData?.token ?? `mock_jwt_${chosenRole}_${Date.now()}`,
       isMinor: userData?.isMinor ?? false,
     }
@@ -91,6 +124,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       sessionStorage.removeItem(STORAGE_KEYS.ROLE)
       sessionStorage.removeItem(STORAGE_KEYS.USER)
       sessionStorage.removeItem(STORAGE_KEYS.IS_MINOR)
+      sessionStorage.removeItem(STORAGE_KEYS.REGISTERED_NAME)
     } catch {
       // Ignorar
     }
@@ -104,10 +138,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isMinor,
       setRole,
       setIsMinor,
+      setRegisteredName,
       login,
       logout,
     }),
-    [role, user, isMinor, setRole, setIsMinor, login, logout]
+    [role, user, isMinor, setRole, setIsMinor, setRegisteredName, login, logout]
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

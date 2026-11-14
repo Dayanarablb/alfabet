@@ -20,6 +20,12 @@ export function ExerciseFriendlyAttemptPage() {
     outletCtx?.setTitle?.('Casi lo tienes')
     outletCtx?.setSubtitle?.('Aprendiendo paso a paso')
     outletCtx?.setAudioText?.(hintAudio)
+
+    return () => {
+      outletCtx?.setTitle?.('Alfabet')
+      outletCtx?.setSubtitle?.('')
+      outletCtx?.setAudioText?.('Alfabet')
+    }
   }, [outletCtx, hintAudio])
 
   const handleRetry = () => {
